@@ -19,7 +19,8 @@
     "jsx": "react-jsx",
     "sourceMap": true,
     "removeComments": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["src"]
 }

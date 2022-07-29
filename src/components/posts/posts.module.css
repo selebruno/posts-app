@@ -1,0 +1,109 @@
+.postsContainer {
+  display: grid;
+  padding: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2rem;
+  column-gap: 10rem;
+  list-style: none;
+}
+
+.post {
+  position: relative;
+  display: block;
+  height: 40rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 110%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(176, 224, 230, 0.898);
+  transform: translateY(100%);
+  transition: 0.5s ease-in-out;
+}
+
+.post:hover .overlay {
+  transform: translateY(0);
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2.5rem;
+  border-top-right-radius: 4rem;
+  max-height: 1rem;
+  background-color: rgba(176, 224, 230, 0.898);
+  transform: translateY(-100%);
+  transition: 0.2s ease-in-out;
+}
+
+.post:hover .card__header {
+  transform: translateY(0);
+}
+
+.title {
+  font-size: 1rem;
+  color: #000000;
+}
+
+.description {
+  padding: 0 3rem 3rem;
+  font-size: 0.8rem;
+  margin: 0;
+  color: black;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.avatar {
+  width: 3rem;
+  height: 3rem;
+  margin: 1rem;
+  border-radius: 50%;
+}
+
+.userContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+  font-weight: 800;
+}
+
+@media only screen and (max-width: 800px) {
+  .postsContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (max-width: 1350px) and (min-width: 800px) {
+  .postsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
