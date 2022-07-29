@@ -1,5 +1,14 @@
-const Home = () => {
-  return <h1>Home</h1>;
+import { FunctionComponent } from 'react';
+import NavBar from '../../components/navbar/NavBar';
+import Posts from '../../components/posts/Posts';
+
+const Home: FunctionComponent = () => {
+  return (
+    <>
+      <NavBar />
+      <Posts />
+    </>
+  );
 };
 
 export default Home;
