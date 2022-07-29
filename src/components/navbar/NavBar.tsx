@@ -1,12 +1,22 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './navbar.module.css';
 
 const NavBar = () => {
+  const userEmail = localStorage.getItem('email');
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
+
   return (
     <nav className={styles.nav}>
       <div className={styles.titleContainer}>
-        <h1 className={styles.title}>Postagram</h1>
+        <a
+          href="https://github.com/selebruno/posts-app"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.title}>
+          Postagram
+        </a>
         <img className={styles.logo} src="/images/logo.png" alt="logo" />
       </div>
       <div className={styles.userMenu}>
@@ -20,9 +30,21 @@ const NavBar = () => {
 
         {isMenuOpen && (
           <div className={styles.linkContainer}>
-            <a className={styles.link} href="/">
+            <p>{userEmail}</p>
+            <button
+              tabIndex={0}
+              onKeyDown={() => {
+                localStorage.clear();
+                navigate('/');
+              }}
+              type="button"
+              className={styles.link}
+              onClick={() => {
+                localStorage.clear();
+                navigate('/');
+              }}>
               <b>Log Out</b>
-            </a>{' '}
+            </button>{' '}
           </div>
         )}
       </div>
