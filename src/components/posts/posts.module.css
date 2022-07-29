@@ -15,19 +15,6 @@
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
-  animation-duration: 1s;
-  animation-name: slidein;
-}
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 110%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
 }
 
 .image {

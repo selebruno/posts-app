@@ -1,0 +1,17 @@
+.eachSlide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+}
+
+.sliderContainer {
+  width: 50%;
+  height: 100vh;
+}
+
+@media screen and (max-width: 800px) {
+  .slider {
+    display: none;
+  }
+}

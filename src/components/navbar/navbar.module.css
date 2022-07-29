@@ -3,6 +3,7 @@
   font-size: 6rem;
   color: #545273;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.747);
+  text-decoration: none;
 }
 
 .nav {
@@ -43,6 +44,9 @@
   text-decoration: none;
   font-size: 18px;
   color: #545273;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {

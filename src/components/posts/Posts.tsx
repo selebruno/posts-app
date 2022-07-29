@@ -17,14 +17,18 @@ const formatString = (string: string): string => {
 const Posts: FunctionComponent = () => {
   const [posts, setPosts] = useState<IPosts[]>();
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(9);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [postsPerPage] = useState<number>(18);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts?.slice(indexOfFirstPost, indexOfLastPost);
 
-  const pagination = (pageNumber) => {
+  const pagination = (pageNumber: number): void => {
     setCurrentPage(pageNumber);
+    window.scrollTo({
+      top: 200,
+      behavior: 'smooth'
+    });
   };
 
   useEffect(() => {
@@ -62,7 +66,7 @@ const Posts: FunctionComponent = () => {
           );
         })}
       </ul>
-      <Pagination postsPerPage={9} totalPosts={posts?.length ?? 0} pagination={pagination} />
+      <Pagination postsPerPage={18} totalPosts={posts?.length ?? 0} pagination={pagination} />
     </>
   );
 };
