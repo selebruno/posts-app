@@ -3,15 +3,18 @@ import NavBar from '../../components/navbar/NavBar';
 import Posts from '../../components/posts/Posts';
 import { usePostsContext } from '../../context/PostsContext';
 
-const Home: FunctionComponent = () => {
+const Favorites: FunctionComponent = () => {
   const { posts } = usePostsContext();
+  const favorites = posts?.filter((el) =>
+    localStorage.getItem('favorites')?.includes(el.id.toString())
+  );
 
   return (
     <>
       <NavBar />
-      {posts && <Posts posts={posts} />}
+      {favorites && <Posts posts={favorites} />}
     </>
   );
 };
 
-export default Home;
+export default Favorites;

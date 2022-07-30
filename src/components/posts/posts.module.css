@@ -20,6 +20,7 @@
 .image {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .overlay {
@@ -83,13 +84,31 @@
   font-weight: 800;
 }
 
+.favButton {
+  border: none;
+  background-color: rgba(176, 224, 230, 0.898);
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.3rem;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.imageContainer button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
 @media only screen and (max-width: 800px) {
   .postsContainer {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
-@media only screen and (max-width: 1350px) and (min-width: 800px) {
+@media only screen and (max-width: 1370px) and (min-width: 800px) {
   .postsContainer {
     grid-template-columns: repeat(2, 1fr);
   }
