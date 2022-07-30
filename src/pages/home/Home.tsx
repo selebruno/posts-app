@@ -9,7 +9,7 @@ const Home: FunctionComponent = () => {
   return (
     <>
       <NavBar />
-      {posts && <Posts posts={posts} />}
+      {posts && <Posts isHomePage posts={posts} />}
     </>
   );
 };

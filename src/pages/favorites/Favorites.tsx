@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 import NavBar from '../../components/navbar/NavBar';
+import NoResults from '../../components/no-results/NoResults';
 import Posts from '../../components/posts/Posts';
 import { usePostsContext } from '../../context/PostsContext';
 
@@ -12,7 +13,7 @@ const Favorites: FunctionComponent = () => {
   return (
     <>
       <NavBar />
-      {favorites && <Posts posts={favorites} />}
+      {favorites && favorites?.length > 0 ? <Posts posts={favorites} /> : <NoResults />}
     </>
   );
 };

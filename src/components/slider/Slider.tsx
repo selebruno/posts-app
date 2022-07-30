@@ -32,7 +32,7 @@ const slideImages = [
 const Slider = () => {
   return (
     <div className={styles.sliderContainer}>
-      <Fade cssClass={styles.slider} autoplay duration={4000} arrows={false}>
+      <Fade cssClass={styles.slider} autoplay duration={3000} arrows={false}>
         {slideImages.map((slideImage) => (
           <img
             src={slideImage.url}

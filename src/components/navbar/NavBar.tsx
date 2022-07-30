@@ -94,9 +94,11 @@ const NavBar = () => {
               }}>
               Log Out
             </button>
-            <Tooltip title={userEmail ?? ''}>
-              <p className={styles.email}>{userEmail}</p>
-            </Tooltip>
+            {userEmail && (
+              <Tooltip title={userEmail}>
+                <p className={styles.email}>{userEmail}</p>
+              </Tooltip>
+            )}
           </div>
         </Popover>
       </div>

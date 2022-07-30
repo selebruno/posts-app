@@ -38,12 +38,7 @@ const Login: FunctionComponent = () => {
           <div className={styles.inputGroup}>
             <input
               {...form.register('email', {
-                required: 'An email is required.',
-
-                maxLength: {
-                  value: 100,
-                  message: 'The title must have less than 100 characters.'
-                }
+                required: 'An email is required.'
               })}
               placeholder="Email"
               className={styles.loginInput}
@@ -53,11 +48,7 @@ const Login: FunctionComponent = () => {
           <div className={styles.inputGroup}>
             <input
               {...form.register('password', {
-                required: 'A password is required.',
-                maxLength: {
-                  value: 100,
-                  message: 'The title must have less than 100 characters.'
-                }
+                required: 'A password is required.'
               })}
               placeholder="Password"
               className={styles.loginInput}
