@@ -1,15 +1,32 @@
+import { Popover, Tooltip } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
 import styles from './navbar.module.css';
 
 const NavBar = () => {
   const userEmail = localStorage.getItem('email');
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   return (
     <nav className={styles.nav}>
       <div className={styles.titleContainer}>
+        <a className={styles.home} href="/home">
+          <HomeIcon fontSize="large" />
+        </a>
         <a
           href="https://github.com/selebruno/posts-app"
           target="_blank"
@@ -20,17 +37,49 @@ const NavBar = () => {
         <img className={styles.logo} src="/images/logo.png" alt="logo" />
       </div>
       <div className={styles.userMenu}>
-        <div
-          role="button"
-          tabIndex={0}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          onKeyDown={() => setIsMenuOpen(!isMenuOpen)}>
-          <img className={styles.userMenuAvatar} src="/users/user10.jpeg" alt="menu" />
-        </div>
-
-        {isMenuOpen && (
+        <button type="button" tabIndex={0} onClick={handleClick} className={styles.avatar}>
+          <h2>{localStorage.getItem('email')?.slice(0, 1)}</h2>
+        </button>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorReference="anchorPosition"
+          anchorPosition={{ top: 70, left: 1810 }}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'center'
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right'
+          }}>
           <div className={styles.linkContainer}>
-            <p>{userEmail}</p>
+            <button
+              tabIndex={0}
+              onKeyDown={() => {
+                navigate('/home');
+              }}
+              type="button"
+              className={styles.link}
+              onClick={() => {
+                navigate('/home');
+              }}>
+              <b>Home</b>
+            </button>
+            <button
+              tabIndex={0}
+              onKeyDown={() => {
+                navigate('/favorites');
+              }}
+              type="button"
+              className={styles.link}
+              onClick={() => {
+                navigate('/favorites');
+              }}>
+              <b>Favorites</b>
+            </button>
             <button
               tabIndex={0}
               onKeyDown={() => {
@@ -43,10 +92,13 @@ const NavBar = () => {
                 localStorage.clear();
                 navigate('/');
               }}>
-              <b>Log Out</b>
-            </button>{' '}
+              Log Out
+            </button>
+            <Tooltip title={userEmail ?? ''}>
+              <p className={styles.email}>{userEmail}</p>
+            </Tooltip>
           </div>
-        )}
+        </Popover>
       </div>
     </nav>
   );

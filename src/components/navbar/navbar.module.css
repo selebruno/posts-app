@@ -29,24 +29,46 @@
   right: 3rem;
 }
 
-.userMenuAvatar {
+.avatar {
   height: auto;
   cursor: pointer;
-  width: 70px;
+  text-transform: uppercase;
+  width: 4rem;
+  border: #545273 solid 2px;
+  color: #545273;
   border-radius: 50%;
 }
 
 .linkContainer {
-  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  align-items: flex-end;
 }
 
 .link {
   text-decoration: none;
   font-size: 18px;
+  padding: 0.3rem;
   color: #545273;
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.home {
+  color: #545273;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+.email {
+  max-width: 15rem;
+  align-self: flex-end;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 800px) {
@@ -56,9 +78,6 @@
   .logo {
     width: 100px;
     height: auto;
-  }
-  .userMenuAvatar {
-    width: 50px;
   }
   .userMenu {
     right: 1rem;

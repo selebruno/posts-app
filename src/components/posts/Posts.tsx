@@ -1,22 +1,17 @@
-import axios from 'axios';
-import { FunctionComponent, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import useLocalStorage from 'react-use-localstorage';
+import { Tooltip } from '@mui/material';
 import Pagination from '../pagination/Pagination';
 import styles from './posts.module.css';
-
-interface IPosts {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
+import { IPosts } from '../../App';
 
 const formatString = (string: string): string => {
   return string[0].charAt(0).toUpperCase() + string.slice(1);
 };
 
-const Posts: FunctionComponent = () => {
-  const [posts, setPosts] = useState<IPosts[]>();
-
+const Posts = ({ posts }: { posts: IPosts[] }): JSX.Element => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [postsPerPage] = useState<number>(18);
   const indexOfLastPost = currentPage * postsPerPage;
@@ -31,12 +26,20 @@ const Posts: FunctionComponent = () => {
     });
   };
 
-  useEffect(() => {
-    axios('https://jsonplaceholder.typicode.com/posts')
-      .then((response) => response.data)
-      .then((data) => setPosts(data));
-  }, []);
+  const [storageItem, setStorageItem] = useLocalStorage('favorites', JSON.stringify([]));
+  const storagedArray = useRef(JSON.parse(storageItem));
 
+  const handleToggleFavourite = (id: number): void => {
+    const isFavourited = storagedArray.current.includes(id);
+    if (!isFavourited) {
+      storagedArray.current.push(id);
+      setStorageItem(JSON.stringify(storagedArray.current));
+    } else {
+      const indexFavouritedId = storagedArray.current.indexOf(id);
+      storagedArray.current.splice(indexFavouritedId, 1);
+      setStorageItem(JSON.stringify(storagedArray.current));
+    }
+  };
   return (
     <>
       <ul className={styles.postsContainer}>
@@ -44,7 +47,31 @@ const Posts: FunctionComponent = () => {
           return (
             <li key={el.id}>
               <div className={styles.post}>
-                <img src={`/images/${el.id}.jpeg`} alt="gatito" className={styles.image} />
+                <div className={styles.imageContainer}>
+                  <button
+                    className={styles.favButton}
+                    type="button"
+                    onClick={() => handleToggleFavourite(el.id)}>
+                    {storagedArray.current.includes(el.id) ? (
+                      <Tooltip title="Unlike Post">
+                        <FavoriteIcon
+                          style={{ verticalAlign: 'middle' }}
+                          fontSize="large"
+                          color="error"
+                        />
+                      </Tooltip>
+                    ) : (
+                      <Tooltip title="Like Post">
+                        <FavoriteBorderIcon
+                          style={{ verticalAlign: 'middle' }}
+                          fontSize="large"
+                          color="action"
+                        />
+                      </Tooltip>
+                    )}
+                  </button>
+                  <img src={`/images/${el.id}.jpeg`} alt="posts" className={styles.image} />
+                </div>
                 <div className={styles.overlay}>
                   <div className={styles.header}>
                     <img
