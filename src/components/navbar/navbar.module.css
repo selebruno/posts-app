@@ -76,10 +76,13 @@
     font-size: 3rem;
   }
   .logo {
-    width: 100px;
-    height: auto;
+    display: none;
   }
   .userMenu {
     right: 1rem;
+  }
+  .home {
+    top: 1rem;
+    left: 1rem;
   }
 }
