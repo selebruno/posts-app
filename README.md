@@ -21,6 +21,8 @@ Postagram es una aplicación web que permite a quien lo utiliza administrar y vi
 
 Si queremos ver la aplicación en producción podemos acceder a: [https://postagram-ten.vercel.app/](https://postagram-ten.vercel.app/)
 
+## Local
+
 Para poder levantar la aplicación de manera local se requiere realizar los siguientes pasos:
 
 Descargar las dependencias corriendo en la carpeta raíz:
