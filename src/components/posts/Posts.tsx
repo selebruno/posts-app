@@ -55,7 +55,7 @@ const Posts = ({ posts, isHomePage }: { posts: IPosts[]; isHomePage?: boolean })
     });
   };
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: number): void => {
     Swal.fire({
       title: 'Are you sure you want to delete this post?',
       showCancelButton: true,
@@ -207,6 +207,7 @@ const Posts = ({ posts, isHomePage }: { posts: IPosts[]; isHomePage?: boolean })
                     {formState.postId === el.id && formState.isEditingTitle ? (
                       <div className={styles.editContainer}>
                         <TextField
+                          variant="standard"
                           fullWidth
                           onChange={(e) =>
                             setInputValue({
@@ -222,7 +223,6 @@ const Posts = ({ posts, isHomePage }: { posts: IPosts[]; isHomePage?: boolean })
                         />
                         <CheckIcon
                           className={styles.checkIcon}
-                          type="button"
                           onClick={() => handleEditTitle(el)}
                         />
                       </div>
@@ -251,6 +251,7 @@ const Posts = ({ posts, isHomePage }: { posts: IPosts[]; isHomePage?: boolean })
                   {formState.postId === el.id && formState.isEditingBody ? (
                     <div className={styles.descriptionContainerEdit}>
                       <TextField
+                        variant="standard"
                         fullWidth
                         onChange={(e) =>
                           setInputValue({
@@ -267,7 +268,6 @@ const Posts = ({ posts, isHomePage }: { posts: IPosts[]; isHomePage?: boolean })
                       <CheckIcon
                         style={{ marginTop: '1rem' }}
                         className={styles.checkIcon}
-                        type="button"
                         onClick={() => handleEditBody(el)}
                       />
                     </div>

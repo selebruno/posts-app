@@ -2,7 +2,7 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import styles from './slider.module.css';
 
-const slideImages = [
+const sliderImages = [
   {
     url: '/images/slide1.jpeg',
     id: '1'
@@ -33,7 +33,7 @@ const Slider = () => {
   return (
     <div className={styles.sliderContainer}>
       <Fade cssClass={styles.slider} autoplay duration={3000} arrows={false}>
-        {slideImages.map((slideImage) => (
+        {sliderImages.map((slideImage) => (
           <img
             src={slideImage.url}
             alt={slideImage.id}
