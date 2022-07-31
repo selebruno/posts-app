@@ -36,7 +36,7 @@ Descargar las dependencias corriendo en la carpeta raíz:
  npm i
 ```
 
-```
+
 Arrancar el servidor de desarrollo con
 
 ```
@@ -50,4 +50,4 @@ Luego es posible ingresar al sitio web desde la siguiente URL
 ```
 
 http://localhost:3000/
-
+```
