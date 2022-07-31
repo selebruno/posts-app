@@ -1,4 +1,5 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/navbar/NavBar';
 import NoResults from '../../components/no-results/NoResults';
 import Posts from '../../components/posts/Posts';
@@ -9,6 +10,13 @@ const Favorites: FunctionComponent = () => {
   const favorites = posts?.filter((el) =>
     localStorage.getItem('favorites')?.includes(el.id.toString())
   );
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!localStorage.getItem('email')) {
+      navigate('/');
+    }
+  }, [localStorage.getItem('email')]);
 
   return (
     <>

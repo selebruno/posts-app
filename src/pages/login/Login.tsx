@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useForm } from 'react-hook-form';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Slider from '../../components/slider/Slider';
 import styles from './login.module.css';
@@ -13,6 +13,10 @@ type IFormValues = {
 const Login: FunctionComponent = () => {
   const form = useForm<IFormValues>();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
 
   const onSubmit = () => {
     localStorage.setItem('email', form.getValues('email'));
