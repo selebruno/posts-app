@@ -110,6 +110,47 @@
   left: 1rem;
 }
 
+.editContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+}
+
+.editIcon {
+  padding: 0.5rem;
+}
+
+.editIcon:hover {
+  background-color: rgb(157, 233, 243);
+  border-radius: 50%;
+}
+
+.checkIcon {
+  margin-left: 1rem;
+  background-color: rgb(157, 233, 243);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.checkIcon:hover {
+  background-color: rgb(129, 255, 251);
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.descriptionContainerEdit {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media only screen and (max-width: 800px) {
   .postsContainer {
     grid-template-columns: repeat(1, 1fr);

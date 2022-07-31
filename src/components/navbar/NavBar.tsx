@@ -1,4 +1,4 @@
-import { Popover, Tooltip } from '@mui/material';
+import { Avatar, Popover, Tooltip } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
@@ -37,16 +37,26 @@ const NavBar = () => {
         <img className={styles.logo} src="/images/logo.png" alt="logo" />
       </div>
       <div className={styles.userMenu}>
-        <button type="button" tabIndex={0} onClick={handleClick} className={styles.avatar}>
-          <h2>{localStorage.getItem('email')?.slice(0, 1)}</h2>
-        </button>
+        <Avatar
+          sx={{
+            width: 50,
+            height: 50,
+            backgroundColor: '#545273',
+            border: 'none',
+            cursor: 'pointer'
+          }}
+          component="button"
+          onClick={handleClick}>
+          {localStorage.getItem('email')?.slice(0, 1).toUpperCase()}
+        </Avatar>
+
         <Popover
           id={id}
           open={open}
           anchorEl={anchorEl}
           onClose={handleClose}
           anchorReference="anchorPosition"
-          anchorPosition={{ top: 70, left: 1810 }}
+          anchorPosition={{ top: 70, left: 1860 }}
           anchorOrigin={{
             vertical: 'top',
             horizontal: 'center'

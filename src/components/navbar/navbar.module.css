@@ -29,32 +29,27 @@
   right: 3rem;
 }
 
-.avatar {
-  height: auto;
-  cursor: pointer;
-  text-transform: uppercase;
-  width: 4rem;
-  border: #545273 solid 2px;
-  color: #545273;
-  border-radius: 50%;
-}
-
 .linkContainer {
   display: flex;
   flex-direction: column;
   padding: 0.7rem;
   border-radius: 1rem;
-  align-items: flex-end;
 }
 
 .link {
   text-decoration: none;
+  text-align: end;
   font-size: 18px;
   padding: 0.3rem;
   color: #545273;
   border: none;
   background-color: transparent;
   cursor: pointer;
+  width: 100%;
+}
+
+.link:hover {
+  background-color: #b0e0e688;
 }
 
 .home {
