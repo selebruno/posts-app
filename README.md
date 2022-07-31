@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# Posts App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Postagram es una aplicación web que permite a quien lo utiliza administrar y visualizar posts de diferentes usuarios. Una vez que se loguea, puede acceder al home screen, donde se encuentran los posteos. Se puede agregar cada uno de ellos a una lista de favoritos, como asi también modificar su titulo y contenido. Si un post no es del agrado del usuario, simplemente lo puede eliminar. Para acceder a la pantalla de favoritos solo basta clickear en el avatar que se encuentra arriba a la derecha y acceder desde allí a la pagina. También es posible visualizar el email de la persona logueada y volver al home si lo asi lo desea.
 
-## Available Scripts
+## Tecnologías y librerías utilizadas
 
-In the project directory, you can run:
+[x] React
+[x] Typescript
+[x] Css Modules
+[x] React router
+[x] Material UI
+[x] React Hook Form
+[x] React Slideshow Image
+[x] SweetAlert
 
-### `npm start`
+## Acceso al proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Para poder levantar la aplicación de manera local se requiere realizar los siguientes pasos:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Descargar las dependencias corriendo en la carpeta raíz:
 
-### `npm test`
+```
+ npm i
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+Arrancar el servidor de desarrollo con
 
-### `npm run build`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Luego es posible ingresar al sitio web desde la siguiente URL
 
-### `npm run eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+http://localhost:3000/
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
 
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+```
