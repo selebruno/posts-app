@@ -11,6 +11,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import Pagination from '../pagination/Pagination';
 import styles from './posts.module.css';
 import { IPosts } from '../../App';
+import NoResults from '../no-results/NoResults';
 
 interface IFormValues {
   title: string | null;
@@ -151,7 +152,7 @@ const Posts = ({ posts, isHomePage }: { posts: IPosts[]; isHomePage?: boolean })
     }
   };
 
-  return (
+  return posts ? (
     <>
       <ul className={styles.postsContainer}>
         {currentPosts?.map((el) => {
@@ -304,8 +305,18 @@ const Posts = ({ posts, isHomePage }: { posts: IPosts[]; isHomePage?: boolean })
           );
         })}
       </ul>
-      <Pagination postsPerPage={18} totalPosts={posts?.length ?? 0} pagination={pagination} />
+      {posts && (
+        <Pagination postsPerPage={18} totalPosts={posts?.length ?? 0} pagination={pagination} />
+      )}
     </>
+  ) : (
+    <NoResults
+      title="No Posts yet"
+      image="/images/no-results.png"
+      description={
+        <h6>Sorry, we could not find any posts at the moment. Please try again later </h6>
+      }
+    />
   );
 };
 
